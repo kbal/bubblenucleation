@@ -1,0 +1,4 @@
+LAMMPS and PLUMED input files for calculation of bubble nucleation 
+rates in Lennard-Jones fluids. The approach combines reweighted 
+Jarzynski sampling and my recrossing correction based on committor 
+analysis.
