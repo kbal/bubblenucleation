@@ -1,3 +1,5 @@
+LOAD FILE=../../code/ReweightGeomFES.cpp
+ 
 UNITS NATURAL
 
 VOLUME LABEL=vol
