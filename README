@@ -23,6 +23,6 @@ by steered MD, biasing this CV. The molvol CV is much cheaper to
 bias, which is why we have chosen this strategy.
 
 The specific nn.py used to generate each bias is provided in its 
-respective fes*/ dir. Some minor differences in fitting ranges 
+respective *fes/ dir. Some minor differences in fitting ranges 
 are result of a "whatever fits" strategy. Same is true for the 
 upper wall used in the equilibrium sampling runs.
