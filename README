@@ -1,4 +1,28 @@
 LAMMPS and PLUMED input files for calculation of bubble nucleation 
-rates in Lennard-Jones fluids. The approach combines reweighted 
-Jarzynski sampling and my recrossing correction based on committor 
-analysis.
+rates in Lennard-Jones fluids. 
+
+The approach combines reweighted Jarzynski sampling and my recrossing
+correction based on committor analysis. As such, three distinct types
+of simulations are needed:
+(1) Steered MD simulations (10 apiece)
+(2) Equilibrium sampling under Jarzynski bias (5 apiece)
+(3) Committor analysis on candidate transition state (10 apiece)
+
+In between (1) and (2) we use the nn.py scripts to derive a bias 
+potential that will enhance sampling in step (2).
+Based on the FES reconstructed from step (2) we identify a candidate 
+transition state/dividing surface that we subject to committor 
+analysis (3), while simultaneously counting the number of recrossings 
+per run, which allows us to estimate the transmission coefficient.
+
+Note that we bias the molvol CV in step (1) and (2), but are actually
+interested in a FES for coord.lessthan, which is possible in a
+reweighting scheme like this. Because we define the dividing surface 
+using the latter CV, we also must prepare our committor candidates 
+by steered MD, biasing this CV. The molvol CV is much cheaper to 
+bias, which is why we have chosen this strategy.
+
+The specific nn.py used to generate each bias is provided in its 
+respective fes*/ dir. Some minor differences in fitting ranges 
+are result of a "whatever fits" strategy. Same is true for the 
+upper wall used in the equilibrium sampling runs.
